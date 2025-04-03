@@ -3,13 +3,19 @@ import StudentController from "../controllers/student"
 import studentService from "../database/student"
 
 class StudentHandler{
-    studentController:StudentController
+    studentController:StudentController;
+    
     constructor(){
-        this.studentController = new StudentController(studentService: studentService);
+        this.studentController = new StudentController(studentService);
     }
 
-    getStudents(req: Request, res: Response, next:NextFunction){
-        
+    async getStudents(req: Request, res: Response, next:NextFunction){
+        try{
+            const studentsData = await this.studentController.getStudentStatus();
+            res.json(studentsData);
+        } catch(error){
+            next(error);
+        }
     }
 }
 
