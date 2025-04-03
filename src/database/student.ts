@@ -20,12 +20,13 @@ const dummyData = [
   
 
 class StudentService{
-    constructor(dummyData:Array<StudentData>){
-
+    data:Array<StudentData>;
+    constructor(data:Array<StudentData>){
+        this.data = data;
     }
     getStudentData(){
-
+        return this.data;
     }
 }  
 
-export default StudentService;
+export default new StudentService(dummyData);

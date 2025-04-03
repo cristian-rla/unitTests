@@ -1,8 +1,8 @@
-import StudentService from "../database/student"
+import studentService from "../database/student"
 
 class StudentController{
-    studentService : StudentService
-    constructor(studentService:StudentService){
+    studentService : typeof studentService;
+    constructor(studentService: typeof studentService){
         this.studentService = studentService;
     }
     async getStudentStatus(){
